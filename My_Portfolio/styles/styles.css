@@ -1,3 +1,4 @@
+/* -------------------------------------------------------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -6,9 +7,11 @@
   list-style: none;
 }
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 :root {
-  --color-primary: #191d2b;
-  --color-secondary: #27ae60;
+  --color-primary: #252A34;
+  --color-secondary: #08D9D6;
   --color-white: #ffffff;
   --color-black: #000;
   --color-grey0: #f8f8f8;
@@ -23,6 +26,8 @@
   --box-shadow-2: 0 0 25px rgb(231, 209, 209);
 }
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 body {
   background-color: var(--color-primary);
   font-family: 'Poppins', sans-serif;
@@ -32,19 +37,30 @@ body {
   transition: all 0.4s ease-in-out;
 }
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 a {
+  /* -------------------------------------------------------------------------- */
+  /* -------------------------------------------------------------------------- */
   display: inline-block;
+  /* -------------------------------------------------------------------------- */
+  /* -------------------------------------------------------------------------- */
   text-decoration: none;
+  /* -------------------------------------------------------------------------- */
   color: inherit;
   font-family: inherit;
 }
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 header {
   height: 100vh;
   color: var(--color-white);
   overflow: hidden;
 }
 
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 section {
   min-height: 100vh;
   width: 100%;
@@ -333,5 +349,32 @@ section {
   background-color: var(--color-secondary);
   -webkit-transform: translateX(0);
           transform: translateX(0);
+}
+
+.main-title {
+  text-align: center;
+}
+
+.main-title h2 {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.main-title h2 span {
+  color: var(--color-secondary);
+}
+
+.main-title h2 .bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--color-grey-5);
+  z-index: -1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-weight: 800;
+  font-size: 6.3rem;
 }
 /*# sourceMappingURL=styles.css.map */

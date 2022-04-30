@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- ----------------------------------------------------------------------- -->
+<!-- The <head> HTML element contains machine-readable information (metadata) about the document, like its title, scripts, and style sheets. -->
+<!-- ----------------------------------------------------------------------- -->
 
 <head>
     <meta charset="UTF-8">
@@ -16,23 +19,27 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <!-- asd───────────────────────────────────────────────────────────────── -->
+    <!-- ───────────────────────────────────────────────────────────────── -->
 
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <!-- ─────────────────────────────────────────────────────────────────────────── -->
+<!-- The <body> HTML element represents the content of an HTML document. There can be only one <body> element in a document. -->
+<!-- ----------------------------------------------------------------------- -->
 
 <body class="main-content">
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- The <header> HTML element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements. -->
+    <!-- ----------------------------------------------------------------------- -->
     <!-- header.section.sec1.header.active -->
     <header class="section sec1 header active" id='home'>
-        <div class="header-content">
-            <div class="left-header">
-                <div class="h-shape"></div>
-                <div class="image">
-                    <img src="img/me.png" alt="">
-                </div>
-            </div>
+        <!-- ----------------------------------------------------------------------- -->
+        <!-- The <div> HTML element is the generic container for flow content. It has no effect on the content or layout until styled in some way using CSS (e.g. styling is directly applied to it, or some kind of layout model like Flexbox is applied to its parent element). -->
+        <!-- ----------------------------------------------------------------------- -->
+        
+            <!-- right header -->
             <div class="right-header">
                 <h1 class="name">
                     Hi, I'm <span class="name">Amir Khaleghi.</span>
@@ -54,8 +61,19 @@
             </div>
         </div>
     </header>
+    <!-- ----------------------------------------------------------------------- -->
+    <!-- The <main> HTML element represents the dominant content of the <body> of a document. The main content area consists of content that is directly related to or expands upon the central topic of a document, o
+         -->
+    <!-- ----------------------------------------------------------------------- -->
     <main>
-        <section class="section sec2 about" id="about"></section>
+        <section class="section sec2 about" id="about">
+            <div class="main-title">
+                <h2>About
+                    <span>me</span>
+                    <span class="bg-text">my stats</span>
+                </h2>
+            </div>
+        </section>
         <section class="section sec3 portfolio" id="portfolio"></section>
         <section class="section sec4 blogs" id="blogs"></section>
         <section class="section sec5 contact" id="contact"></section>
