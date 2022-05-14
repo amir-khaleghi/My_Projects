@@ -1,4 +1,7 @@
-// * is global selector for all elements
+
+/* -------------------------------------------------------------------------- */
+/*                    * is global selector for all elements                   */
+/* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 * {
   margin: 0;
@@ -12,8 +15,8 @@
 //  :root can be useful for declaring global CSS variables
 /* -------------------------------------------------------------------------- */
 :root {
-  --color-primary: #252A34;
-  --color-secondary: #08D9D6;
+  --color-primary: #252a34;
+  --color-secondary: #29dca0;
   --color-white: #ffffff;
   --color-black: #000;
   --color-grey0: #f8f8f8;
@@ -23,9 +26,11 @@
   --color-grey4: #454e56;
   --color-grey5: #2a2e35;
   --color-grey6: #12181b;
-  --br-sm-2: 14px;
+  --br-sm-2: 10%;
+  --br-sm-3: 50%;
+
   --box-shadow-1: 0 4px 15px rgb(231, 209, 209); //rgba(0, 0, 0, 0.2)
-  --box-shadow-2: 0 0 25px rgb(231, 209, 209); //rgba(0, 0, 0, 0.2)
+  --box-shadow-2: -30px -30px 100px rgb(231, 209, 209); //rgba(0, 0, 0, 0.2)
 }
 /* -------------------------------------------------------------------------- */
 // The <body> tag defines the document's body.
@@ -47,12 +52,12 @@ a {
   /* -------------------------------------------------------------------------- */
   display: inline-block;
   /* -------------------------------------------------------------------------- */
-  // The text-decoration shorthand CSS property sets the appearance of decorative lines on text. 
+  // The text-decoration shorthand CSS property sets the appearance of decorative lines on text.
   /* -------------------------------------------------------------------------- */
   text-decoration: none;
   /* -------------------------------------------------------------------------- */
   // the cascade, specificity, and inheritance — which control how CSS is applied to HTML and how conflicts are resolved.
-  
+
   color: inherit;
   font-family: inherit;
 }
@@ -118,180 +123,437 @@ section {
   }
 }
 
-/* -------------------------------- controls -------------------------------- */
+/* -------------------------------- CONTROLS -------------------------------- */
+
 .controls {
+  /* -------------------------------------------------------------------------- */
+  /*                                CSS POSITIONS  (SAFRI)                              */
+  /* -------------------------------------------------------------------------- */
+  // static   : Default value. Elements render in order, as they appear in the document flow
+  // absolute	:The element is positioned relative to its first positioned (not static) ancestor element
+  // fixed	  :The element is positioned relative to the browser window
+  // relative :The element is positioned relative to its normal position, so "left:20px" adds 20 pixels to the element's LEFT position
+  // sticky   :The element is positioned based on the user's scroll position A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed).
+  // Note: Not supported in IE/Edge 15 or earlier. Supported in Safari from version 6.1 with a -webkit- prefix.
+  // initial	: Sets this property to its default value. Read about initial
+  // inherit	: Inherits this property from its parent element. Read about inherit
+  /* -------------------------------------------------------------------------- */
   position: fixed;
+  
+  /* -------------------------------------------------------------------------- */
+  /*                   how to center an element in the middle of page?                  */
+  /* -------------------------------------------------------------------------- */
+  // .centered {
+  //   position: fixed;
+  //   top: 50%;
+  //   left: 50%;
+  //   /* bring your own prefixes */
+  //   transform: translate(-50%, -50%);
+  // }
+/* -------------------------------------------------------------------------- */
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   z-index                                  */
+  /* -------------------------------------------------------------------------- */
+  // The z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order.
   z-index: 10;
+
+  /* -------------------------------------------------------------------------- */
   top: 50%;
   right: 3%;
+
+  /* -------------------------------------------------------------------------- */
+  /*                          DISPLAY (HELLO WORLD!)                     */
+  /* ---------------------------------------------------------------------- ---- */
+  // The display CSS property sets whether an element is treated as 
+  // a block or inline element and
+            // display : none
+            // display: inline
+            // display: block
+            // display: inline-block:
+
+  //  the layout used for its children, such as flow layout, grid or flex.
+            // Normal flow
+            // Flexbox
+            // Grids
+            // Floats
+            // Positioning
+            // Multiple-column layout
+/* -------------------------------------------------------------------------- */
+/*                                    flex                                    */
+/* -------------------------------------------------------------------------- */
   display: flex;
   flex-direction: column;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 align-items                                */
+  /* -------------------------------------------------------------------------- */
+  // The CSS align-items property sets the align-self value on all direct children as a group. In Flexbox, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.
   align-items: center;
+
+  /* -------------------------------------------------------------------------- */
+  /*                               justify-content                              */
+  /* -------------------------------------------------------------------------- */
   justify-content: center;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  transform                                 */
+  /* -------------------------------------------------------------------------- */
+  // The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.
   transform: translateY(-50%);
+/* -------------------------------------------------------------------------- */
+
 
   .active-btn {
+      /* -------------------------------------------------------------------------- */
+      /*                             What is !important?                            */
+      /* -------------------------------------------------------------------------- */
+            // The !important rule in CSS is used to add more importance to a property/value than normal.In fact, if you use the !important rule, it will override ALL previous styling rules for that specific property on that element!
     background-color: var(--color-secondary) !important;
-    transition: all 0.4s ease-in-out;
+      /* -------------------------------------------------------------------------- */
+    transition: all 0.6s ease-in-out ;
     i {
       color: var(--color-white) !important;
     }
   }
+/* -------------------------------------------------------------------------- */
   .control {
-    padding: 1 rem;
-    //change cursor when mouse is on it
+    /* -------------------------------------------------------------------------- */
+    /*                              what is padding?                              */
+    /* -------------------------------------------------------------------------- */
+    // The padding CSS shorthand property sets the padding area on all four sides of an element at once.
+    padding: 10 rem;
+    
+    /* -------------------------------------------------------------------------- */
+    /*                                   cursor?                                  */
+    /* -------------------------------------------------------------------------- */
+    // The cursor CSS property sets the mouse cursor, if any, to show when the mouse pointer is over an element.
     cursor: pointer;
-
+    
     background-color: var(--color-grey4);
     width: 55px;
     height: 55px;
 
-    //convert it to circle
+    /* -------------------------------------------------------------------------- */
+    /*                                border-radius                               */
+    /* -------------------------------------------------------------------------- */
+    // The border-radius CSS property rounds the corners of an element's outer border edge. You can set a single radius to make circular corners, or two radii to make elliptical corners.
     border-radius: 50%;
+    // border-radius: 25% 10%;
 
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0.3rem 0;
+
+    /* -------------------------------------------------------------------------- */
+    /*                                box-shadow: ;                               */
+    /* -------------------------------------------------------------------------- */
+    // The box-shadow CSS property adds shadow effects around an element's frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radius, and color.
     box-shadow: var(--box-shadow-1);
 
-    //increase the size of content inside the icon//
+    /* ------------ // increase the size of content inside the icon// ----------- */
     i {
       font-size: 1.2rem;
       color: var(--color-grey2);
 
-      // reaction to click
+      /* -------------------------------------------------------------------------- */
+      /*                               pointer-events                               */
+      /* -------------------------------------------------------------------------- */
+      // The pointer-events CSS property sets under what circumstances (if any) a particular graphic element can become the target of pointer events.
       pointer-events: none;
     }
   }
+  /* -------------------------------------------------------------------------- */
 }
 
 /* ----------------------------- header-content ----------------------------- */
 
 .header-content {
+  /* -------------------------------------------------------------------------- */
+  /*                                  css grid                                  */
+  /* -------------------------------------------------------------------------- */
+  // The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 100%;
+
+  /* -------------------------------------------------------------------------- */
+  /*                            grid-template-columns                           */
+  /* -------------------------------------------------------------------------- */
+  // The grid-template-columns CSS property defines the line names and track sizing functions of the grid columns.
+// grid-template-columns: 60px 60px;
+// Choose example 1
+// grid-template-columns: 1fr 60px;
+// Choose example 2
+// grid-template-columns: 1fr 2fr;
+// Choose example 3
+// grid-template-columns: 8ch auto;
+  grid-template-columns: repeat(2, 1fr); // seperate header into 2 seperate coloumn
+  height: 100%; // header fill the full screen
+  
   .left-header {
     display: flex;
     align-items: center;
     position: relative;
 
+
+    /* --------------------------- left grid composite -------------------------- */
     .h-shape {
       transition: all 0.4s ease-in-out;
-      width: 65%;
+      transform: rotate(-90deg);
+      width: 165%;
       height: 100%;
       background-color: var(--color-secondary);
       position: absolute;
-      left: 0;
+      left: -40%;
       top: 0;
       z-index: -1;
+
+      /* -------------------------------------------------------------------------- */
+      /*                                  clip-path                                 */
+      /* -------------------------------------------------------------------------- */
       // can use clip path generator
-      clip-path: polygon(0 0, 46% 0, 79% 100%, 0 100%);
+      // The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden.
+      
+      // clip-path: polygon(0 0, 46% 0, 79% 100%, 0 100%);
+      clip-path: polygon(100% 0%, 0% 0% , 0% 65%, 1% 64.95%, 2% 64.8%, 3% 64.6%, 4% 64.3%, 5% 63.9%, 6% 63.45%, 7% 62.9%, 8% 62.25%, 9% 61.55%, 10% 60.8%, 11% 59.95%, 12% 59.05%, 13% 58.1%, 14% 57.1%, 15% 56.05%, 16% 55%, 17% 53.9%, 18% 52.8%, 19% 51.65%, 20% 50.5%, 21% 49.35%, 22% 48.2%, 23% 47.05%, 24% 45.9%, 25% 44.8%, 26% 43.75%, 27% 42.75%, 28% 41.75%, 29% 40.8%, 30% 39.9%, 31% 39.1%, 32% 38.35%, 33% 37.65%, 34% 37.05%, 35% 36.5%, 36% 36.05%, 37% 35.65%, 38% 35.35%, 39% 35.15%, 40% 35.05%, 41% 35%, 42% 35.05%, 43% 35.2%, 44% 35.45%, 45% 35.75%, 46% 36.15%, 47% 36.65%, 48% 37.2%, 49% 37.85%, 50% 38.55%, 51% 39.35%, 52% 40.2%, 53% 41.1%, 54% 42.05%, 55% 43.05%, 56% 44.1%, 57% 45.15%, 58% 46.3%, 59% 47.4%, 60% 48.55%, 61% 49.7%, 62% 50.85%, 63% 52%, 64% 53.15%, 65% 54.25%, 66% 55.35%, 67% 56.4%, 68% 57.45%, 69% 58.4%, 70% 59.35%, 71% 60.2%, 72% 61.05%, 73% 61.8%, 74% 62.45%, 75% 63.05%, 76% 63.6%, 77% 64.05%, 78% 64.4%, 79% 64.7%, 80% 64.85%, 81% 65%, 82% 65%, 83% 64.9%, 84% 64.75%, 85% 64.5%, 86% 64.2%, 87% 63.75%, 88% 63.25%, 89% 62.7%, 90% 62.05%, 91% 61.3%, 92% 60.5%, 93% 59.65%, 94% 58.75%, 95% 57.8%, 96% 56.8%, 97% 55.75%, 98% 54.65%, 99% 53.55%, 100% 52.4%);
+
     }
+    .h1-shape {
+      transition: all 0.4s ease-in-out;
+      transform: rotate(-90deg);
+      width: 165%;
+      height: 100%;
+      background-color: var(--color-primary);
+      position: absolute;
+      left: -50%;
+      top: 0;
+      z-index: -1;
+
+      /* -------------------------------------------------------------------------- */
+      /*                                  clip-path                                 */
+      /* -------------------------------------------------------------------------- */
+      // can use clip path generator
+      // The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden.
+      
+      // clip-path: polygon(0 0, 46% 0, 79% 100%, 0 100%);
+      clip-path: polygon(100% 0%, 0% 0% , 0% 65%, 1% 64.95%, 2% 64.8%, 3% 64.6%, 4% 64.3%, 5% 63.9%, 6% 63.45%, 7% 62.9%, 8% 62.25%, 9% 61.55%, 10% 60.8%, 11% 59.95%, 12% 59.05%, 13% 58.1%, 14% 57.1%, 15% 56.05%, 16% 55%, 17% 53.9%, 18% 52.8%, 19% 51.65%, 20% 50.5%, 21% 49.35%, 22% 48.2%, 23% 47.05%, 24% 45.9%, 25% 44.8%, 26% 43.75%, 27% 42.75%, 28% 41.75%, 29% 40.8%, 30% 39.9%, 31% 39.1%, 32% 38.35%, 33% 37.65%, 34% 37.05%, 35% 36.5%, 36% 36.05%, 37% 35.65%, 38% 35.35%, 39% 35.15%, 40% 35.05%, 41% 35%, 42% 35.05%, 43% 35.2%, 44% 35.45%, 45% 35.75%, 46% 36.15%, 47% 36.65%, 48% 37.2%, 49% 37.85%, 50% 38.55%, 51% 39.35%, 52% 40.2%, 53% 41.1%, 54% 42.05%, 55% 43.05%, 56% 44.1%, 57% 45.15%, 58% 46.3%, 59% 47.4%, 60% 48.55%, 61% 49.7%, 62% 50.85%, 63% 52%, 64% 53.15%, 65% 54.25%, 66% 55.35%, 67% 56.4%, 68% 57.45%, 69% 58.4%, 70% 59.35%, 71% 60.2%, 72% 61.05%, 73% 61.8%, 74% 62.45%, 75% 63.05%, 76% 63.6%, 77% 64.05%, 78% 64.4%, 79% 64.7%, 80% 64.85%, 81% 65%, 82% 65%, 83% 64.9%, 84% 64.75%, 85% 64.5%, 86% 64.2%, 87% 63.75%, 88% 63.25%, 89% 62.7%, 90% 62.05%, 91% 61.3%, 92% 60.5%, 93% 59.65%, 94% 58.75%, 95% 57.8%, 96% 56.8%, 97% 55.75%, 98% 54.65%, 99% 53.55%, 100% 52.4%);
+
+    }
+    .h2-shape {
+      transition: all 0.4s ease-in-out;
+      transform: rotate(-90deg);
+      width: 165%;
+      height: 100%;
+      background-color: var(--color-primary);
+      position: absolute;
+      left: -55%;
+      top: 0;
+      z-index: 2;
+
+      /* -------------------------------------------------------------------------- */
+      /*                                  clip-path                                 */
+      /* -------------------------------------------------------------------------- */
+      // can use clip path generator
+      // The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden.
+      
+      // clip-path: polygon(0 0, 46% 0, 79% 100%, 0 100%);
+      clip-path: polygon(100% 0%, 0% 0% , 0% 65%, 1% 64.95%, 2% 64.8%, 3% 64.6%, 4% 64.3%, 5% 63.9%, 6% 63.45%, 7% 62.9%, 8% 62.25%, 9% 61.55%, 10% 60.8%, 11% 59.95%, 12% 59.05%, 13% 58.1%, 14% 57.1%, 15% 56.05%, 16% 55%, 17% 53.9%, 18% 52.8%, 19% 51.65%, 20% 50.5%, 21% 49.35%, 22% 48.2%, 23% 47.05%, 24% 45.9%, 25% 44.8%, 26% 43.75%, 27% 42.75%, 28% 41.75%, 29% 40.8%, 30% 39.9%, 31% 39.1%, 32% 38.35%, 33% 37.65%, 34% 37.05%, 35% 36.5%, 36% 36.05%, 37% 35.65%, 38% 35.35%, 39% 35.15%, 40% 35.05%, 41% 35%, 42% 35.05%, 43% 35.2%, 44% 35.45%, 45% 35.75%, 46% 36.15%, 47% 36.65%, 48% 37.2%, 49% 37.85%, 50% 38.55%, 51% 39.35%, 52% 40.2%, 53% 41.1%, 54% 42.05%, 55% 43.05%, 56% 44.1%, 57% 45.15%, 58% 46.3%, 59% 47.4%, 60% 48.55%, 61% 49.7%, 62% 50.85%, 63% 52%, 64% 53.15%, 65% 54.25%, 66% 55.35%, 67% 56.4%, 68% 57.45%, 69% 58.4%, 70% 59.35%, 71% 60.2%, 72% 61.05%, 73% 61.8%, 74% 62.45%, 75% 63.05%, 76% 63.6%, 77% 64.05%, 78% 64.4%, 79% 64.7%, 80% 64.85%, 81% 65%, 82% 65%, 83% 64.9%, 84% 64.75%, 85% 64.5%, 86% 64.2%, 87% 63.75%, 88% 63.25%, 89% 62.7%, 90% 62.05%, 91% 61.3%, 92% 60.5%, 93% 59.65%, 94% 58.75%, 95% 57.8%, 96% 56.8%, 97% 55.75%, 98% 54.65%, 99% 53.55%, 100% 52.4%);
+
+    }
+    .h3-shape {
+      transition: all 0.4s ease-in-out;
+      transform: rotate(-90deg);
+      width: 165%;
+      height: 100%;
+      background-color: var(--color-secondary);
+      position: absolute;
+      left: -60%;
+      top: 0;
+      z-index:4;
+
+      /* -------------------------------------------------------------------------- */
+      /*                                  clip-path                                 */
+      /* -------------------------------------------------------------------------- */
+      // can use clip path generator
+      // The clip-path CSS property creates a clipping region that sets what part of an element should be shown. Parts that are inside the region are shown, while those outside are hidden.
+      
+      // clip-path: polygon(0 0, 46% 0, 79% 100%, 0 100%);
+      clip-path: polygon(100% 0%, 0% 0% , 0% 65%, 1% 64.95%, 2% 64.8%, 3% 64.6%, 4% 64.3%, 5% 63.9%, 6% 63.45%, 7% 62.9%, 8% 62.25%, 9% 61.55%, 10% 60.8%, 11% 59.95%, 12% 59.05%, 13% 58.1%, 14% 57.1%, 15% 56.05%, 16% 55%, 17% 53.9%, 18% 52.8%, 19% 51.65%, 20% 50.5%, 21% 49.35%, 22% 48.2%, 23% 47.05%, 24% 45.9%, 25% 44.8%, 26% 43.75%, 27% 42.75%, 28% 41.75%, 29% 40.8%, 30% 39.9%, 31% 39.1%, 32% 38.35%, 33% 37.65%, 34% 37.05%, 35% 36.5%, 36% 36.05%, 37% 35.65%, 38% 35.35%, 39% 35.15%, 40% 35.05%, 41% 35%, 42% 35.05%, 43% 35.2%, 44% 35.45%, 45% 35.75%, 46% 36.15%, 47% 36.65%, 48% 37.2%, 49% 37.85%, 50% 38.55%, 51% 39.35%, 52% 40.2%, 53% 41.1%, 54% 42.05%, 55% 43.05%, 56% 44.1%, 57% 45.15%, 58% 46.3%, 59% 47.4%, 60% 48.55%, 61% 49.7%, 62% 50.85%, 63% 52%, 64% 53.15%, 65% 54.25%, 66% 55.35%, 67% 56.4%, 68% 57.45%, 69% 58.4%, 70% 59.35%, 71% 60.2%, 72% 61.05%, 73% 61.8%, 74% 62.45%, 75% 63.05%, 76% 63.6%, 77% 64.05%, 78% 64.4%, 79% 64.7%, 80% 64.85%, 81% 65%, 82% 65%, 83% 64.9%, 84% 64.75%, 85% 64.5%, 86% 64.2%, 87% 63.75%, 88% 63.25%, 89% 62.7%, 90% 62.05%, 91% 61.3%, 92% 60.5%, 93% 59.65%, 94% 58.75%, 95% 57.8%, 96% 56.8%, 97% 55.75%, 98% 54.65%, 99% 53.55%, 100% 52.4%);
+
+    }
+
+
+/* ---------------------------------- image container --------------------------------- */
     .image {
-      border-radius: var(--br-sm-2);
+      // clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+      // clip-path: circle(40% at 50% 50%);
+      border-radius: var(--br-sm-3);
       height: 60%;
       width: 60%;
-      margin-left: 4rem;
+      margin-left:10%;
       background-color: var(--color-black);
       transition: all 0.4s ease-in-out;
       box-shadow: var(--box-shadow-2);
 
+/* ------------------------------- image file ------------------------------- */
       img {
-        width: 80%;
-        height: 80%;
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        /* bring your own prefixes */
+        // transform: translate(-50%, -50%);
+
+        /* -------------------------------------------------------------------------- */
+        /*                                 object-fit                                 */
+        /* -------------------------------------------------------------------------- */
+        // The object-fit CSS property sets how the content of a replaced element, such as an <img> or <video>, should be resized to fit its container.
         object-fit: cover;
-        transition: all 0.4s ease-in-out;
-        filter: grayscale(100%);
+
+        /* -------------------------------------------------------------------------- */
+        /*                                 transition                                 */
+        /* -------------------------------------------------------------------------- */
+        // The transition CSS property is a shorthand property for transition-property, transition-duration, transition-timing-function, and transition-delay.
+        
+        // transition: margin-right 2s;
+        // Choose example 1
+        // transition: margin-right 2s .5s;
+        // Choose example 2
+        // transition: margin-right 2s ease-in-out;
+
+        transition: all .6s ease-in-out;
+
+        /* -------------------------------------------------------------------------- */
+        /*                                   filter                                   */
+        /* -------------------------------------------------------------------------- */
+        // The filter CSS property applies graphical effects like blur or color shift to an element. Filters are commonly used to adjust the rendering of images, backgrounds, and borders.
+        // Included in the CSS standard are several functions that achieve predefined effects. You can also reference an SVG filter with a URL to an SVG filter element.
+
+        
+        
+        // filter: url("../../media/examples/shadow.svg#element-id");
+        // Choose example 1
+        // filter: blur(5px);
+        // Choose example 2
+        // filter: contrast(200%);
+        // Choose example 3
+        // filter: grayscale(80%);
+        // Choose example 4
+        // filter: hue-rotate(90deg);
+        // Choose example 5
+        // filter: drop-shadow(16px 16px 20px red) invert
+
+        filter: grayscale(100%) blur(1px);
+/* -------------------------------------------------------------------------- */
+/*                                   :hover                                   */
+/* -------------------------------------------------------------------------- */
+// The :hover CSS pseudo-class matches when the user interacts with an element with a pointing device, but does not necessarily activate it. It is generally triggered when the user hovers over an element with the cursor (mouse pointer).
+
         &:hover {
-          filter: grayscale(0);
+          transform: scale(1.2);
+          filter : grayscale(0);
         }
       }
     }
   }
+
+  /* ------------------------------ right header ------------------------------ */
+
   .right-header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-right: 18rem;
+    /* -------------------------------------------------------------------------- */
+    /*                                padding-right                               */
+    /* -------------------------------------------------------------------------- */
+// The padding-right CSS property sets the width of the padding area on the right of an element.
+    padding-right: 12rem;
+    /* ---------------------------------- name ---------------------------------- */
     .name {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
       span {
         color: var(--color-secondary);
       }
     }
-    p{
-      margin: 1.5rem 0;
-      line-height: 1.5rem;
+    p {
+      margin: 2rem 0;
+      /* -------------------------------------------------------------------------- */
+      /*                                 line-height                                */
+      /* -------------------------------------------------------------------------- */
+      // The line-height CSS property sets the height of a line box. It's commonly used to set the distance between lines of text.    
+      line-height: 2em;
     }
   }
 }
 
-
 /* -------------------------- independent Component ------------------------- */
 
-.btn-con{
+// cv button
+.btn-con {
   display: flex;
-  align-self:flex-start;
+  /* -------------------------------------------------------------------------- */
+  /*                                 align-self                                 */
+  /* -------------------------------------------------------------------------- */
+// The align-self CSS property overrides a grid or flex item's align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.
+  align-self: flex-start;
 }
-.main-btn{
-   border-radius: 30px;
-   color: inherit;
-   font-weight: 600;
-   position: relative;
-   border: 1px solid var(--color-secondary);
-   display: flex;
-   align-self: flex-start;
-   display: flex;
-   align-items: center;
-   overflow: hidden;
-   .btn-text{
-     padding: 0 2rem;
-   }
-   .btn-icon{
-     background-color: var(--color-secondary); 
-     display : flex;
-     align-items: center;
-     justify-content: center;
-     border-radius: 50px;
-     padding: 1rem
-   }
-   &::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translateX(100%);
-      transition: all 0.4s ease-in-out;
-      z-index: -1;
-   }
-   &:hover{
-     &::before{
-       width: 100%;
-       height: 100%;
-       background-color: var(--color-secondary);
-       transform: translateX(0);
-
-     }
-   }
+/* ----------------------------- cv download btn ---------------------------- */
+.main-btn {
+  border-radius: 30px;
+  // color: inherit;
+  font-weight: 600;
+  position: relative;
+  border: 1px solid var(--color-secondary);
+  display: flex;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  .btn-text {
+    padding: 0 2rem;
+  }
+  .btn-icon {
+    background-color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 1rem;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+  }
+  &:hover {
+    &::before {
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-secondary);
+      transform: translateX(0);
+    }
+  }
 }
 
-.main-title{
+.main-title {
   text-align: center;
-  h2{
+  h2 {
+    top: 3rem;
     position: relative;
     text-transform: uppercase;
     font-size: 4rem;
-    font-weight: 700;
-    span{
-      color: var(--color-secondary)
+    font-weight: 400;
+    span {
+      color: var(--color-secondary);
     }
-    .bg-text{
+    .bg-text {
       position: absolute;
-      top: 50%; 
+      top: 50%;
       left: 50%;
-      color: var(--color-grey-5);
+      color: var(--color-grey4);
       z-index: -1;
       transform: translate(-50%, -50%);
       font-weight: 800;
